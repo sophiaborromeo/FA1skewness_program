@@ -536,7 +536,7 @@ exam_results$Prog1 &lt;- NULL
 exam_results$Arch2 &lt;- NULL
 exam_results$Prog2 &lt;- NULL
 
-# As seen from the module, I will do this for comparison
+#As seen from the module, I will do this for comparison
 summary(exam_results)</code></pre>
 <pre><code>##     Gender              arch1            prog1           arch2      
 ##  Length:119         Min.   :  3.00   Min.   :12.00   Min.   : 6.00  
@@ -554,12 +554,33 @@ summary(exam_results)</code></pre>
 ##  3rd Qu.:76.50  
 ##  Max.   :97.00  
 ##  NA&#39;s   :8</code></pre>
-<pre class="r"><code># Answering follow up questions:
-#1. What can you say about these data?
-#Upon calculating the skewness for each subject and obtaining their coefficients using the skewness function, it has given me information regarding the distribution of the data. It is said that when skewness is close to 0, then the data is close to symmetrical. If it’s positive, then it is right-skewed or the distribution usually has a higher mean than its median while negative skewness is the opposite where the median is usually higher than the mean. This can be observed from the data above. We can see that arch2 has a positive coefficient and its mean is higher than its median while the other three subjects are negative, proposing that their median is higher than their mean. Nonetheless, they are all close to zero, they range from -0.5063276 to 0.4423272, which signifies that the distribution is somewhat symmetrical.
-
-#2. Is it a reasonable approximation?
-#Comparing the results from the built-in skewness function and the results that were derived from Pearson’s skewness approximation, With Pearson’s ranging from -0.643229 to 0.5421286 and the skewness function ranging from -0.5063276 to 0.4423272, we can say that it is a reasonable approximation. Note that Arch2 is still the only subject that has a positive skewness and the other three have negatives just like in the skewness function. Still, they are varying values, which reminds us that Pearson’s formula is merely an approximation—it is not accurate. Regardless, it gives us an insight regarding the distribution’s skewness as it provides close values.</code></pre>
+<p>Answering follow up questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What can you say about these data? Upon calculating the skewness
+for each subject and obtaining their coefficients using the skewness
+function, it has given me information regarding the distribution of the
+data. It is said that when skewness is close to 0, then the data is
+close to symmetrical. If it’s positive, then it is right-skewed or the
+distribution usually has a higher mean than its median while negative
+skewness is the opposite where the median is usually higher than the
+mean. This can be observed from the data above. We can see that arch2
+has a positive coefficient and its mean is higher than its median while
+the other three subjects are negative, proposing that their median is
+higher than their mean. Nonetheless, they are all close to zero, they
+range from -0.5063276 to 0.4423272, which signifies that the
+distribution is somewhat symmetrical.</p></li>
+<li><p>Is it a reasonable approximation? Comparing the results from the
+built-in skewness function and the results that were derived from
+Pearson’s skewness approximation, With Pearson’s ranging from -0.643229
+to 0.5421286 and the skewness function ranging from -0.5063276 to
+0.4423272, we can say that it is a reasonable approximation. Note that
+Arch2 is still the only subject that has a positive skewness and the
+other three have negatives just like in the skewness function. Still,
+they are varying values, which reminds us that Pearson’s formula is
+merely an approximation—it is not accurate. Regardless, it gives us an
+insight regarding the distribution’s skewness as it provides close
+values.</p></li>
+</ol>
 
 
 
