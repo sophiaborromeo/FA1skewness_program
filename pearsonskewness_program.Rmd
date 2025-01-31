@@ -1,0 +1,78 @@
+---
+title: "Pearson's Skewness Porgram"
+output: html_document
+date: "2025-01-31"
+---
+
+```{r}
+#This will print the results of my R code chunks
+library(knitr)
+
+# First, I'll set my working directory
+setwd("C:/Users/Elisha/Desktop/FA1")
+exam_results <- read.table("results.txt", header = TRUE, na.strings = "NA")
+# Print the data to view the contents
+print(exam_results)
+View(exam_results)
+
+# I need this to ensure that the argument is numeric
+exam_results$arch1 <- as.numeric(exam_results$Arch1)
+# Calculating the mean of arch1
+mean_arch1 <- mean(exam_results$arch1, na.rm = TRUE)
+# Calculating the median of arch1
+median_arch1 <- median(exam_results$arch1, na.rm = TRUE)
+# Calculating the standard deviation of arch1
+sd_arch1 <- sd(exam_results$arch1, na.rm = TRUE)
+# Calculating skewness of arch1 based on Pearson's
+skewness_arch1 <- 3 * (mean_arch1 - median_arch1) / sd_arch1
+skewness_arch1
+
+exam_results$prog1 <- as.numeric(exam_results$Prog1)
+# Calculating the mean of prog1
+mean_prog1 <- mean(exam_results$prog1, na.rm = TRUE)
+# Calculating the median of prog1
+median_prog1 <- median(exam_results$prog1, na.rm = TRUE)
+# Calculating the standard deviation of prog1
+sd_prog1 <- sd(exam_results$prog1, na.rm = TRUE)
+# Calculating skewness of prog1 based on Pearson's
+skewness_prog1 <- 3 * (mean_prog1 - median_prog1) / sd_prog1
+skewness_prog1
+
+exam_results$arch2 <- as.numeric(exam_results$Arch2)
+# Calculating the mean of arch2
+mean_arch2 <- mean(exam_results$arch2, na.rm = TRUE)
+# Calculating the median of arch2
+median_arch2 <- median(exam_results$arch2, na.rm = TRUE)
+# Calculating the standard deviation of arch2
+sd_arch2 <- sd(exam_results$arch2, na.rm = TRUE)
+# Calculating skewness of arch2 based on Pearson's
+skewness_arch2 <- 3 * (mean_arch2 - median_arch2) / sd_arch2
+skewness_arch2
+
+exam_results$prog2 <- as.numeric(exam_results$Prog2)
+# Calculating the mean of prog2
+mean_prog2 <- mean(exam_results$prog2, na.rm = TRUE)
+# Calculating the median of prog2
+median_prog2 <- median(exam_results$prog2, na.rm = TRUE)
+# Calculating the standard deviation of prog2
+sd_prog2 <- sd(exam_results$prog2, na.rm = TRUE)
+# Calculating skewness of prog2 based on Pearson's
+skewness_prog2 <- 3 * (mean_prog2 - median_prog2) / sd_prog2
+skewness_prog2
+
+# To avoid redundancy, I will remove repeating columns
+exam_results$Arch1 <- NULL
+exam_results$Prog1 <- NULL
+exam_results$Arch2 <- NULL
+exam_results$Prog2 <- NULL
+
+# As seen from the module, I will do this for comparison
+summary(exam_results)
+
+# Answering follow up questions:
+#1.	What can you say about these data?
+#Upon calculating the skewness for each subject and obtaining their coefficients using the skewness function, it has given me information regarding the distribution of the data. It is said that when skewness is close to 0, then the data is close to symmetrical. If it’s positive, then it is right-skewed or the distribution usually has a higher mean than its median while negative skewness is the opposite where the median is usually higher than the mean. This can be observed from the data above. We can see that arch2 has a positive coefficient and its mean is higher than its median while the other three subjects are negative, proposing that their median is higher than their mean. Nonetheless, they are all close to zero, they range from -0.5063276 to 0.4423272, which signifies that the distribution is somewhat symmetrical.
+
+#2. Is it a reasonable approximation?
+#Comparing the results from the built-in skewness function and the results that were derived from Pearson’s skewness approximation, With Pearson’s ranging from -0.643229 to 0.5421286 and the skewness function ranging from -0.5063276 to 0.4423272, we can say that it is a reasonable approximation. Note that Arch2 is still the only subject that has a positive skewness and the other three have negatives just like in the skewness function. Still, they are varying values, which reminds us that Pearson’s formula is merely an approximation—it is not accurate. Regardless, it gives us an insight regarding the distribution’s skewness as it provides close values.
+

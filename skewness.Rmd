@@ -1,0 +1,48 @@
+---
+title: "Skewness Program"
+output: html_document
+date: "2025-01-31"
+---
+
+```{r}
+# After installing in R, I loaded the e1071 package as it contains the skewness function:
+library(e1071)
+
+# This is my current working directory
+setwd("C:/Users/Elisha/Desktop/FA1")
+
+# This ensures that my text file is read
+exam_results <- read.table("results.txt", header = TRUE, na.strings = "NA") 
+print(exam_results)
+
+# Must ensure that Arch1 is numeric before proceeding
+exam_results$arch1 <- as.numeric(exam_results$Arch1)  
+skewness_arch1 <- skewness(exam_results$arch1, na.rm = TRUE)
+cat("Skewness for Arch1:", skewness_arch1, "\n")
+
+# Must ensure that Prog1 is numeric before proceeding
+exam_results$prog1 <- as.numeric(exam_results$Prog1)
+skewness_prog1 <- skewness(exam_results$prog1, na.rm = TRUE)
+cat("Skewness for Prog1:", skewness_prog1, "\n")
+
+# Must ensure that Arch2 is numeric before proceeding
+exam_results$arch2 <- as.numeric(exam_results$Arch2)
+skewness_arch2 <- skewness(exam_results$arch2, na.rm = TRUE)
+cat("Skewness for Arch2:", skewness_arch2, "\n")
+
+# Must ensure that Prog2 is numeric before proceeding
+exam_results$prog2 <- as.numeric(exam_results$Prog2)
+skewness_prog2 <- skewness(exam_results$prog2, na.rm = TRUE)
+cat("Skewness for Prog2:", skewness_prog2, "\n")
+
+# To avoid redundancy, remove repeating columns
+exam_results$Arch1 <- NULL
+exam_results$Prog1 <- NULL
+exam_results$Arch2 <- NULL
+exam_results$Prog2 <- NULL
+
+# We can finally view the reults and compare it with Pearson's
+summary(exam_results)
+
+```
+
